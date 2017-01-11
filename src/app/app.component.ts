@@ -23,7 +23,7 @@ export class AppComponent {
     let onWindowResize = () => {
 
       maxx = container.offsetWidth;
-      container.style.height = container.offsetWidth * 9/16 + 'px';
+      container.style.height = container.offsetWidth * 9 / 16 + 'px';
 
       maxy = container.offsetHeight;
 
@@ -41,16 +41,16 @@ export class AppComponent {
     let onDocumentTouchStart = ( event ) => {
       if ( event.touches.length > 1 ) {
         event.preventDefault();
-        mouseX = event.touches[ 0 ].pageX - (maxx/2);
-        mouseY = event.touches[ 0 ].pageY - (maxy/2);
+        mouseX = event.touches[ 0 ].pageX - (maxx / 2);
+        mouseY = event.touches[ 0 ].pageY - (maxy / 2);
       }
     };
 
     let onDocumentTouchMove = ( event ) => {
       if ( event.touches.length === 1 ) {
         event.preventDefault();
-        mouseX = event.touches[ 0 ].pageX - (maxx/2);
-        mouseY = event.touches[ 0 ].pageY - (maxy/2);
+        mouseX = event.touches[ 0 ].pageX - (maxx / 2);
+        mouseY = event.touches[ 0 ].pageY - (maxy / 2);
       }
     };
 
@@ -74,7 +74,7 @@ export class AppComponent {
       scene.background = new THREE.Color( 0xffffff );
 
       maxx = container.offsetWidth;
-      container.style.height = container.offsetWidth * 9/16 + 'px';
+      container.style.height = container.offsetWidth * 9 / 16 + 'px';
       maxy = container.offsetHeight;
 
       renderer = new THREE.WebGLRenderer();
@@ -89,12 +89,12 @@ export class AppComponent {
         this.particles.vertices.push(particle);
       }
 
-      let particleMaterial = new THREE.PointsMaterial({ color: 'cyan', size: 5 });
+      let particleMaterial = new THREE.PointsMaterial({ color: '#1c9bd8', size: 5 });
       this.particleSystem = new THREE.Points(this.particles, particleMaterial);
 
       scene.add(this.particleSystem);
 
-      let line = new THREE.Line( this.particles, new THREE.LineBasicMaterial( { color: 'cyan', opacity: 1 } ) );
+      let line = new THREE.Line( this.particles, new THREE.LineBasicMaterial( { color: '#1c9bd8', opacity: 1 } ) );
       scene.add( line );
 
       window.addEventListener( 'resize', onWindowResize, false );
